@@ -1,0 +1,7 @@
+RPi.GPIO
+opencv-python
+tensorflow
+flask
+flask-cors
+flask-pymongo
+flask-redis
