@@ -17,6 +17,6 @@ RUN ["apk","add","py3-virtualenv"]
 RUN apk add build-base
 RUN ["export","CFLAGS=-fcommon"]
 
-COPY "RPi.GPIO-0.7.0.tar.gz" .
-RUN tar xvf "RPi.GPIO-0.7.0.tar.gz"
-RUN ["python3","setup.py","install"]
+#COPY "RPi.GPIO-0.7.0.tar.gz" .
+#RUN tar xvf "RPi.GPIO-0.7.0.tar.gz"
+#RUN ["python3","setup.py","install"]
