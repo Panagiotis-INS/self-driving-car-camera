@@ -7,14 +7,15 @@ from tqdm import *
 import matplotlib.pyplot as plt
 ####
 # get file names of frames
-vc=cv2.VideoCapture(0)
+vc=cv2.VideoCapture('/dev/video2')#)
 #
 return_value, image = vc.read()
 ######
 #image index
 # plot image
-#plt.imshow(image[:,:,0], cmap= "gray")
-#plt.show()
+plt.imshow(image, cmap= "gray")
+plt.show()
+exit(1)
 # create a zero array
 stencil = np.zeros_like(image[:,:,0])
 # specify coordinates of the polygon
