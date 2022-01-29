@@ -1,14 +1,20 @@
 import os
 import re
-from tkinter import Frame
+#from tkinter import Frame
 import cv2
 import numpy as np
 from tqdm import *
 import matplotlib.pyplot as plt
 from time import sleep
+import json
+import requests
 ####
-#def send_to_server():
-
+def send_to_server(found,go):
+    print(found,go)
+    #http://middleware:8351
+    data={'found':found,'go':go}
+    url = 'http://middleware:8351/api/camera/'
+    requests.post(url, data = data)
 #
 def main():
     vc=cv2.VideoCapture('/dev/video2')#0)
@@ -34,16 +40,19 @@ def main():
                 x1, y1, x2, y2 = line[0]
                 print(x1,x2,y1,y2)
                 cv2.line(dmy, (x1, y1), (x2, y2), (255, 0, 0), 3)
+                direction=''
                 if(x1+x2>dmy[1].size):
-                    print(1) # go right
+                    #print(1) # go right
+                    direction='r'
                 else:
-                    print(0) ## go left
-            print("YES")
+                    direction='l'
+                    #print(0) # go left
+            #print("YES")
             
-            #send_to_server()
+            send_to_server(1,direction)
         except:
-            #send_to_server()
-            print("No")
+            send_to_server(0,0)
+            #print("No")
         # plot image
         #plt.figure(figsize=(10,10))
         #plt.imshow(dmy, cmap= "gray")
