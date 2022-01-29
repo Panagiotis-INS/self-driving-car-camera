@@ -17,7 +17,7 @@ def send_to_server(found,go):
     requests.post(url, data = data)
 #
 def main():
-    vc=cv2.VideoCapture('/dev/video2')#0)
+    vc=cv2.VideoCapture(0)
     ######
     while(1):
         return_value, image = vc.read()
