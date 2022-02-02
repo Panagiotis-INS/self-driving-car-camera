@@ -13,11 +13,11 @@ def send_to_server(found,go):
     print(found,go)
     #http://middleware:8351
     data={'found':found,'go':go}
-    url = 'http://middleware:8351/api/camera/'
+    url = 'http://20.0.0.202:8351/api/camera/'
     requests.post(url, data = data)
 #
 def main():
-    vc=cv2.VideoCapture(0)
+    vc=cv2.VideoCapture(0)#'/dev/video2')
     ######
     while(1):
         return_value, image = vc.read()
